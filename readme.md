@@ -1,7 +1,7 @@
 # Sistema de acesso à biblioteca universitaria
-atividade em dupla em C
+### Atividade em dupla em C
 
-Algoritmos de Programação
-Welington Gadelha
-Univali - Itajai 
-2025 - 1 Periodo
+- Algoritmos de Programação<br>
+- Welington Gadelha<br>
+- Univali - Itajai <br>
+- 2025 - 1 Periodo<br>
