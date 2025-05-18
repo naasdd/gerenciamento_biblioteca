@@ -44,23 +44,21 @@ int main()
 
     } while (categoriaUsuario < 1 || categoriaUsuario > 4);
 
-
     do
     {
-        
+
         printf("\nEstá em débito com a biblioteca? (1 - sim / 0 - não): ");
         scanf("%d", &possuiDebito);
         if (possuiDebito != 1 && possuiDebito != 0)
         {
             printf("Você selecionou uma opção invalida, tente novamente\n");
         }
-        
-    } while (possuiDebito != 1 && possuiDebito != 0);
 
+    } while (possuiDebito != 1 && possuiDebito != 0);
 
     do
     {
-        
+
         printf("\nQual é o dia da semana no acesso? \n");
         printf("  1 - Domingo \n");
         printf("  2 - Segunda \n");
@@ -75,9 +73,8 @@ int main()
         {
             printf("Dia da semana invalido, tente novamente\n");
         }
-        
-    } while (diaSemana < 1 || diaSemana > 7);
 
+    } while (diaSemana < 1 || diaSemana > 7);
 
     do
     {
@@ -87,9 +84,8 @@ int main()
         {
             printf("Horario invalido, tente novamente\n");
         }
-        
+
     } while (horario < 0 || horario > 24);
-    
 
     // Isso aqui é só pra ver se as variaveis estao guardando certinho, se quiser pode apagar
     printf("\nmatricula: %d \n", matricula);
@@ -100,10 +96,26 @@ int main()
     printf("diaSemana: %d \n", diaSemana);
     printf("horario: %d \n\n", horario);
 
-
-
-
     // Agora seria a parte da verificação dos dados pra saber se o acesso foi liberado ou nao
 
+    switch (categoriaUsuario)
+    {
+        case 1:
+            if(possuiDebito)
+        break;
+        case 2:
+
+        break;
+        case 3:
+            printf("Acesso autorizado para PROFESSOR");
+        break;
+        case 4:
+
+        break;
+        default:
+            printf("ERRO, Acesso negado.");
+        break;
+
+    }
     return 0;
 }
