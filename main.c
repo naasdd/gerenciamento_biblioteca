@@ -7,7 +7,7 @@ int main()
     system("chcp 65001");
     printf("\n\n----- Acesso a biblioteca universitaria -----\n ");
 
-    int matricula, idade, categoriaUsuario, possuiDebito, diaSemana, horario;
+    int matricula, idade, categoriaUsuario, possuiDebito, diaSemana, horario, autorizacao;
     char curso[50];
 
     do
@@ -100,22 +100,107 @@ int main()
 
     switch (categoriaUsuario)
     {
-        case 1:
-            if(possuiDebito)
-        break;
-        case 2:
+    case 1:
+        if (possuiDebito)
+        {
+            printf("\nUsuario possui débito\n");
+            autorizacao = 0;
+        }
+        else
+        {
+            if (horario >= 8 && horario <= 22)
+            {
+                if (diaSemana >= 2 && diaSemana <= 6)
+                {
+                    printf("\nAcesso autorizado para GRADUAÇÂO\n");
+                    autorizacao = 1;
+                }
+                else
+                {
+                    printf("\nDia da semana invalido.\n");
+                    autorizacao = 0;
+                }
+            }
+            else
+            {
+                printf("\nHorario invalido\n");
+                autorizacao = 0;
+            }
+        }
 
         break;
-        case 3:
-            printf("Acesso autorizado para PROFESSOR");
-        break;
-        case 4:
+    case 2:
+        if (possuiDebito)
+        {
+            printf("\nUsuario possui débito\n");
+            autorizacao = 0;
+        }
+        else
+        {
+            if (horario >= 8 && horario <= 22)
+            {
+                if (diaSemana >= 2 && diaSemana <= 7)
+                {
+                    printf("\nAcesso autorizado para PÓS-GRADUAÇÂO\n");
+                    autorizacao = 1;
+                }
+                else
+                {
+                    printf("\nDia da semana invalido.\n");
+                    autorizacao = 0;
+                }
+            }
+            else
+            {
+                printf("\nHorario invalido\n");
+                autorizacao = 0;
+            }
+        }
 
         break;
-        default:
-            printf("ERRO, Acesso negado.");
+    case 3:
+        printf("\nAcesso autorizado para PROFESSOR\n");
+        autorizacao = 1;
         break;
+    case 4:
+        if (possuiDebito)
+        {
+            printf("\nUsuario possui débito\n");
+            autorizacao = 0;
+        }
+        else
+        {
+            if (horario >= 9 && horario <= 17)
+            {
+                if (diaSemana >= 2 && diaSemana <= 6)
+                {
+                    printf("\nAcesso autorizado para VISITANTE\n");
+                    autorizacao = 1;
+                }
+                else
+                {
+                    printf("\nDia da semana invalido.\n");
+                    autorizacao = 0;
+                }
+            }
+            else
+            {
+                printf("\nHorario invalido\n");
+                autorizacao = 0;
+            }
+        }
 
+        break;
+    default:
+        printf("\nERRO\n");
+        autorizacao = 0;
+        break;
     }
+
+    if (!autorizacao)
+    {
+        printf("Acesso negado.\n\n");
+    }
+
     return 0;
 }
