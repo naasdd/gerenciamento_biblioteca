@@ -89,9 +89,55 @@ int main()
         }
         
     } while (horario < 0 || horario > 24);
-    
 
-    // Isso aqui é só pra ver se as variaveis estao guardando certinho, se quiser pode apagar
+    switch (categoriaUsuario)
+    {
+    case 3: // Professor
+    printf("\nAcesso liberado\n");
+      break;
+    case 1: // Aluno de graduação
+    if (possuiDebito == 1){
+      printf("\nAcesso negado por problemas de débito, regularize sua situação e tente novamente. \n");
+    }
+   if (diaSemana == 1 || diaSemana == 7){
+        printf("\n Acesso negado, tente novamente de segunda a sexta.\n");
+    }
+   if (horario < 8 || horario > 22){
+        printf("\n Acesso negado, tente novamente entre 08:00 e 22:00.\n");
+    }
+   if (possuiDebito == 0 && diaSemana != 1 && diaSemana != 7 && horario >= 8 && horario <= 22){
+        printf("\nAcesso liberado\n");
+        break;
+      }
+      case 2: // Aluno de pós-graduação~
+      if (possuiDebito == 1){
+        printf("\nAcesso negado por problemas de débito, regularize sua situação e tente novamente. \n");
+      }
+     if (diaSemana == 1){
+        printf("\n Acesso negado, tente novamente de segunda a sabado.");
+      }
+     if (horario < 8 || horario > 22){
+          printf("\n Acesso negado, tente novamente entre 08:00 e 22:00.\n");
+      }
+     if (possuiDebito == 0 && diaSemana != 1 && horario >= 8 && horario <= 22){
+        printf("\nAcesso liberado\n");
+      }
+      break;
+      case 4: // Visitante
+    if (possuiDebito == 1){
+        printf("\nAcesso negado por problemas de débito, regularize sua situação e tente novamente. \n");
+    }
+   if (diaSemana == 1 || diaSemana == 7){
+        printf("\n Acesso negado, tente novamente de segunda a sexta.\n");
+    }
+   if (horario < 8 || horario > 17){
+        printf("\n Acesso negado, tente novamente entre 08:00 e 17:00.\n");
+      }
+   if (possuiDebito == 0 && diaSemana != 1 && diaSemana != 7 && horario >= 8 && horario <= 17){
+        printf("\nAcesso liberado\n");
+        break;
+      }
+    }
     printf("\nmatricula: %d \n", matricula);
     printf("idade: %d \n", idade);
     printf("curso: %s \n", curso);
@@ -99,11 +145,5 @@ int main()
     printf("possuiDebito: %d \n", possuiDebito);
     printf("diaSemana: %d \n", diaSemana);
     printf("horario: %d \n\n", horario);
-
-
-
-
-    // Agora seria a parte da verificação dos dados pra saber se o acesso foi liberado ou nao
-
     return 0;
-}
+  }
